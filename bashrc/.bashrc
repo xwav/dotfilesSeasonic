@@ -84,6 +84,13 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+# alias gt='gio trash --list | column -t -s $'\t' | fzf -i -e -m -d / --with-nth 4.. --bind \'home:first,end:last,ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\' --prompt="gio trash restore file(s): " | cut -d \' \' -f1 | while read -r line ; do gio trash --restore "$line" ; done'
+
+alias gtr='gio trash --list | column -t -s $'\''\t'\'' | fzf -i -e -m -d / --with-nth 4.. --bind '\''home:first,end:last,ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all'\'' --prompt="gio trash restore file(s): " | cut -d " " -f1 | while read -r line ; do gio trash --restore "$line" ; done'
+alias gtl='gio trash --list'
+alias gte='gio trash --empty'
+alias gt='gio trash'
+
 alias lz='lazygit'
 alias ll='ls -l'
 alias la='ls -A'
@@ -100,10 +107,12 @@ alias bm=". /home/$USER/.config/bashmount/bashmount"
 alias nm="nmtui"
 alias xr="xrandr --output LVDS-1 --brightness 0.65"
 
-alias v="nvim"
+# alias v="nvim"
+alias v="lvim"
 alias h="cht.sh --shell"
 alias j="jmtpfs ~/Poco"
-alias z="nvim /home/$USER/.bashrc"
+# alias z="nvim /home/$USER/.bashrc"
+alias z="lvim /home/$USER/.bashrc"
 alias pm="passmenu &"
 
 alias ..="cd .."
@@ -160,11 +169,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# export PAGER="most"
+export PAGER="most"
 export BROWSER="brave-browser"
 export XTERM="st"
-export EDITOR="nvim"
-
+# export EDITOR="nvim"
+export EDITOR="/home/xwav/.local/bin/lvim"
 
 #add keyboard layout to dwm
 setxkbmap us,ua -option grp:ctrl_alt_toggle

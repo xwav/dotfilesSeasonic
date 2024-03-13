@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Monospace:pixelsize=19:antialias=true:autohint=true";
+static char *font = "DejaVuSansMNerdFont:pixelsize=21:antialias=true:autohint=true";
 
 
 static int borderpx = 2;
@@ -126,7 +126,7 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#add8e6", /* 256 -> cursor */ 
 	"#555555", /* 257 -> rev cursor */
-	"#ffffff", /* 258 -> bg */ 
+	"#fcd3d2", /* 258 -> bg */ 
 	"#e5e5e5", /* 259 -> fg */
 
 };
@@ -136,7 +136,7 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultbg = 258;
-unsigned int defaultfg = 5;
+unsigned int defaultfg = 0;
 unsigned int defaultcs = 9;
 unsigned int defaultrcs = 257;
 
@@ -162,13 +162,13 @@ unsigned int defaultrcs = 257;
 // 	"#8ec07c", /* 14 pale green */
 // 	"#ebdbb2", /* 15 dirt yellow */
 // 	[255] = 0,
-//
+
 // 	/* more colors can be added after 255 to use with DefaultXX */
 // 	"#cccccc", /* dust */
 // 	"#555555", /*dark grey*/
 //   "#ffffff", /*white*/
 // };
-//
+
 // /*
 //  * Default colors (colorname index)
 //  * foreground, background, cursor, reverse cursor

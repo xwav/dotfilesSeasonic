@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#3E3C16";
+static const char col_cyan[]        = "#a7ff2b";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -24,7 +24,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "135x38", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "164x44", NULL };
 const char *spcmd2[] = {"st", "-n", "spnews", "-g", "144x41", "-e", "newsboat", NULL };
 const char *spcmd3[] = {"zathura", NULL };
 const char *spcmd4[] = {"st", "-n", "spmc", "-g", "144x41", "-e", "mc", NULL };

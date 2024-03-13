@@ -1,4 +1,4 @@
 #!/bin/bash
-/usr/bin/rclone sync "GoogleDrive:/" "/home/$USER/DiskD/Sync/" > /home/$USER/.dotfiles/rclone/log.txt 2>&1
+/usr/bin/rclone sync "GoogleDrive:/" "/home/xwav/DiskD/Sync/" > /home/xwav/.dotfiles/rclone/log.txt 2>&1
 
 
