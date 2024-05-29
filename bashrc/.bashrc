@@ -106,8 +106,8 @@ alias mc='. /usr/lib/mc/mc-wrapper.sh'
 alias bm=". /home/$USER/.config/bashmount/bashmount"
 alias nm="nmtui"
 alias xr="xrandr --output LVDS-1 --brightness 0.65"
+alias cal="ncal -M -y"
 
-# alias v="nvim"
 alias v="lvim"
 alias h="cht.sh --shell"
 alias j="jmtpfs ~/Poco"
@@ -123,6 +123,8 @@ alias grep="grep --color=always"
 alias cp="cp -ia"
 alias mv="mv -i"
 alias rm="rm -i"
+# alias mount="pmount"
+# alias umount="pumount"
 alias psg="ps auxw | grep -i "
 alias psptree="ps auxwwwf"
 alias tree="tree --dirsfirst -F"
@@ -174,7 +176,6 @@ fi
 export PAGER="most"
 export BROWSER="brave-browser"
 export XTERM="st"
-# export EDITOR="nvim"
 export EDITOR="/home/xwav/.local/bin/lvim"
 
 #add keyboard layout to dwm

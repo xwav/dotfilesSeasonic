@@ -121,14 +121,14 @@ static const ColorScheme schemes[] = {
 	  [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
 
 	// Alacritty (dark)
-	{{"#1d1f21", "#cc6666", "#b5bd68", "#f0c674",
+	{{"black", "#cc6666", "#b5bd68", "#f0c674",
 	  "#81a2be", "#b294bb", "#8abeb7", "#c5c8c6",
 	  "#666666", "#d54e53", "#b9ca4a", "#e7c547",
 	  "#7aa6da", "#c397d8", "#70c0b1", "#eaeaea",
 	  [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
 
 	// One Half dark
-	{{"#282c34", "#e06c75", "#98c379", "#e5c07b",
+	{{"black", "#e06c75", "#98c379", "#e5c07b",
 	  "#61afef", "#c678dd", "#56b6c2", "#dcdfe4",
 	  "#282c34", "#e06c75", "#98c379", "#e5c07b",
 	  "#61afef", "#c678dd", "#56b6c2", "#dcdfe4",
@@ -156,7 +156,7 @@ static const ColorScheme schemes[] = {
 	  [256]="#586e75", "#002b36"}, 12, 8, 256, 257},
 
 	// Gruvbox dark
-	{{"#282828", "#cc241d", "#98971a", "#d79921",
+	{{"black", "#cc241d", "#98971a", "#d79921",
 	  "#458588", "#b16286", "#689d6a", "#a89984",
 	  "#928374", "#fb4934", "#b8bb26", "#fabd2f",
 	  "#83a598", "#d3869b", "#8ec07c", "#ebdbb2",
@@ -196,8 +196,8 @@ static unsigned int cursorshape = 2;
  * Default columns and rows numbers
  */
 
-static unsigned int cols = 120;
-static unsigned int rows = 90;
+static unsigned int cols = 140;
+static unsigned int rows = 110;
 
 /*
  * Default colour and shape of the mouse cursor

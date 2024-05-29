@@ -24,7 +24,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x41", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x40", NULL };
 const char *spcmd2[] = {"st", "-n", "spnews", "-g", "144x41", "-e", "newsboat", NULL };
 const char *spcmd3[] = {"zathura", NULL };
 const char *spcmd4[] = {"st", "-n", "spmc", "-g", "144x41", "-e", "mc", NULL };
@@ -127,20 +127,25 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenu } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_Down,   focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_Up,     focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_o,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_Tab,    shiftview,      {.i = -1 } },
 	{ MODKEY,                       XK_backslash,  shiftview,      {.i = +1 } },
 
-	{ MODKEY|ShiftMask,             XK_Down,    rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_Up,      rotatestack,    {.i = -1 } },
+	// { MODKEY|ShiftMask,             XK_Down,    rotatestack,    {.i = +1 } },
+	// { MODKEY|ShiftMask,             XK_Up,      rotatestack,    {.i = -1 } },
+
+	{ MODKEY,                       XK_j,   focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,     focusstack,     {.i = -1 } },
+
+	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
+
+	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
 
   { MODKEY|ShiftMask,             XK_Left,   shifttag,       {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Right,  shifttag,       {.i = +1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
