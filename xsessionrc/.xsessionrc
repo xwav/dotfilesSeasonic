@@ -1,0 +1,13 @@
+#set date on top bar
+~/xsetroot.sh & 
+
+# xrandr --output HDMI-1 --mode 1920x1080i
+xrandr --output DP-1 --primary --left-of HDMI-1 --output DP-1 --brightness 0.8 --output HDMI-1 --brightness 1
+feh --bg-scale --randomize  ~/.config/wallpapers/* &
+xcompmgr -c &
+conky &
+
+#exec dwm
+while true; do
+	/usr/local/bin/dwm 2> /dev/null
+done

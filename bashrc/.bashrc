@@ -181,7 +181,6 @@ export EDITOR="/home/xwav/.local/bin/lvim"
 #add keyboard layout to dwm
 setxkbmap us,ua -option grp:ctrl_alt_toggle
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # git clone --bare https://www.github.com/xwav/.dotfiles.git $USER_HOME/.dotfiles
 
@@ -220,3 +219,6 @@ setxkbmap us,ua -option grp:ctrl_alt_toggle
 
 
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. "$HOME/.cargo/env"
