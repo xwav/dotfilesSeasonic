@@ -69,7 +69,7 @@ conky.config = {
 
 conky.text = [[
 ${color1}${font ConkySymbols:size=11}${font} ${voffset -10} System» $hr${color}
-${color1}${goto 25}CPU       : ${alignr}${cpu cpu0}%
+${color1}${goto 25}CPU       : ${alignr}${cpu}%
 ${color1}${goto 25}Uptime  : ${color}$uptime_short 
 ${color1}${goto 25}Load     : ${color}${loadavg}
 

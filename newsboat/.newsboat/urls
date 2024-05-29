@@ -1,8 +1,6 @@
 --------IT web-------
 https://opensource.com/feed "~Opensouce.com"
 https://www.cyberciti.biz/atom/atom.xml "~Cybercity.biz"
-https://hackaday.com/blog/feed "~Hackaday.com" 
+https://www.jjinux.com//feeds/posts/default "~jjinux.com"
+https://www.latacora.com/blog/index.xml "~latacora.com"
 
------IT YOUTUBE-----
-https://www.youtube.com/feeds/videos.xml?channel_id=UCxQKHvKbmSzGMvUrVtJYnUA "~LearnLinuxTV"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith"

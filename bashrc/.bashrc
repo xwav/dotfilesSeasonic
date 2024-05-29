@@ -13,7 +13,7 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
 # set -o vi
 
-export PATH=/home/xwav/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/xwav/.local/bin:/home/xwav/.local/bin:/home/xwav/.config/fzf/bin:/home/xwav/.local/bin:/usr/local/go/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/xwav/.local/bin:/home/xwav/.config/fzf/bin:/usr/local/go/bin
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -87,14 +87,14 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # alias gt='gio trash --list | column -t -s $'\t' | fzf -i -e -m -d / --with-nth 4.. --bind \'home:first,end:last,ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\' --prompt="gio trash restore file(s): " | cut -d \' \' -f1 | while read -r line ; do gio trash --restore "$line" ; done'
 
 alias gtr='gio trash --list | column -t -s $'\''\t'\'' | fzf -i -e -m -d / --with-nth 4.. --bind '\''home:first,end:last,ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all'\'' --prompt="gio trash restore file(s): " | cut -d " " -f1 | while read -r line ; do gio trash --restore "$line" ; done'
-alias gtl='gio trash --list'
-alias gte='gio trash --empty'
-alias gt='gio trash'
+alias gtl="gio trash --list"
+alias gte="gio trash --empty"
+alias gt="gio trash"
 
-alias lz='lazygit'
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+alias lz="lazygit"
+alias ll="ls -l"
+alias la="ls -A"
+alias l="ls -CF"
 
 alias n="newsboat"
 alias c="cmus"
@@ -125,26 +125,28 @@ alias mv="mv -i"
 alias rm="rm -i"
 alias psg="ps auxw | grep -i "
 alias psptree="ps auxwwwf"
-alias tree='tree --dirsfirst -F'
+alias tree="tree --dirsfirst -F"
 alias df="df -hT"
 alias du="du -hc"
 alias free="free -m"
 alias screen="screen -U -l"
 alias passgen="< /dev/urandom tr -cd \[:graph:\] | fold -w 32 | head -n 5"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com" 
+
 alias f="fzf --preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+alias citrix="/opt/Citrix/ICAClient/selfservice &"
 
 # init bare repo for dotfiles
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 #Git aliases
-alias gst='git status'
-alias ga='git add'
-alias gaa='git add --all'
-alias gc='git commit'
-alias gl='git log --oneline'
-alias gb='git checkout -b'
-alias gd='git diff'
+alias gst="git status"
+alias ga="git add"
+alias gaa="git add --all"
+alias gc="git commit"
+alias gl="git log --oneline"
+alias gb="git checkout -b"
+alias gd="git diff"
 
 #mount GoogleDrive
 mount | grep "${HOME}/GoogleDrive" >/dev/null || /usr/bin/google-drive-ocamlfuse "${HOME}/GoogleDrive" > /dev/null 

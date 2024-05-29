@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#a7ff2b";
+static const char col_cyan[]        = "#3E3C16";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -24,7 +24,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "164x44", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x41", NULL };
 const char *spcmd2[] = {"st", "-n", "spnews", "-g", "144x41", "-e", "newsboat", NULL };
 const char *spcmd3[] = {"zathura", NULL };
 const char *spcmd4[] = {"st", "-n", "spmc", "-g", "144x41", "-e", "mc", NULL };
@@ -126,7 +126,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenu } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Down,   focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Up,     focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -162,7 +162,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_z,      togglescratch,  {.ui = 2 } },
 	{ MODKEY,                       XK_m,      togglescratch,  {.ui = 3 } },
 	{ MODKEY,                       XK_c,      togglescratch,  {.ui = 4 } },
-	{ MODKEY,                       XK_w,      togglescratch,  {.ui = 5 } },
+	{ MODKEY,                       XK_b,      togglescratch,  {.ui = 5 } },
 	
   TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
