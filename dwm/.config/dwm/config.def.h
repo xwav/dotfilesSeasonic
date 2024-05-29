@@ -24,7 +24,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x41", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x40", NULL };
 const char *spcmd2[] = {"st", "-n", "spnews", "-g", "144x41", "-e", "newsboat", NULL };
 const char *spcmd3[] = {"zathura", NULL };
 const char *spcmd4[] = {"st", "-n", "spmc", "-g", "144x41", "-e", "mc", NULL };
