@@ -85,6 +85,9 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 # some more ls aliases
 # alias gt='gio trash --list | column -t -s $'\t' | fzf -i -e -m -d / --with-nth 4.. --bind \'home:first,end:last,ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all\' --prompt="gio trash restore file(s): " | cut -d \' \' -f1 | while read -r line ; do gio trash --restore "$line" ; done'
+alias sai='sudo apt install'
+alias sar='sudo apt remove'
+alias sau='sudo apt update'
 
 alias gtr='gio trash --list | column -t -s $'\''\t'\'' | fzf -i -e -m -d / --with-nth 4.. --bind '\''home:first,end:last,ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all'\'' --prompt="gio trash restore file(s): " | cut -d " " -f1 | while read -r line ; do gio trash --restore "$line" ; done'
 alias gtl="gio trash --list"
@@ -222,3 +225,4 @@ setxkbmap us,ua -option grp:ctrl_alt_toggle
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 . "$HOME/.cargo/env"
+export GIT_TERMINAL_PROMPT=1

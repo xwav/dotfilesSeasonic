@@ -50,11 +50,15 @@ network-manager \
 syncthing \
 pulseaudio-module-bluetooth \
 qbittorrent \
-chrony
+most \
+ipython3 \
+nvtop
 
+# install manualy those listed below
 # tmux \
 # fzf \
-# most \
+
+ubuntu-drivers autoinstall
 
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
