@@ -17,3 +17,4 @@ dwm/.config/dwm/util.o
 newsboat/.newsboat/cache.db
 st/.config/st/x.o
 st/.config/st/st.o
+fonts/.local/share/fonts/.uuid
