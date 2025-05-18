@@ -1,0 +1,4 @@
+#!/bin/bash
+/usr/bin/rclone sync "GoogleDrive:/" "/home/xwav/DiskD/Sync/"
+
+

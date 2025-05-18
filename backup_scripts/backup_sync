@@ -1,0 +1,28 @@
+#!/bin/bash
+
+SRC_DIR=/home/xwav/DiskD/Sync
+SRC_DIR2=/home/xwav/DiskD/src
+DEST_DIR=/home/xwav/DiskD/backups
+TODAY=$(date +"%Y-%m-%d")
+
+NUM_BACKUPS=3
+
+if [ -f "$DEST_DIR/backup_${TODAY}.tar.gz" ]; then
+  echo "Backup for today already exists, skipping..."
+  exit 1
+else
+  # Set the output file name (current date)
+  OUTPUT_FILE=backup_$(date +"%Y-%m-%d").tar.gz
+
+  # Use rsync to copy files with -a and --delete flags
+  # rsync -avz --delete $SRC_DIR $DEST_DIR/
+
+  # Archive and zip the copied files using tar
+  tar -czf $DEST_DIR/$OUTPUT_FILE $SRC_DIR $SRC_DIR2
+
+  # Rotate archives by deleting the oldest one (if there are more than 3)
+  ARCHIVES=$(find $DEST_DIR -type f -name "backup_*" | sort -n)
+  if [ $(echo "$ARCHIVES" | wc -l) -ge $NUM_BACKUPS ]; then
+    rm $(echo "$ARCHIVES" | head -1)
+  fi
+fi
