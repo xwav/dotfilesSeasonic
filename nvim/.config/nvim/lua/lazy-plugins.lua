@@ -3,7 +3,7 @@ require('lazy').setup({
 
   require 'plugins.gitsigns',
   require 'plugins.telescope',
-  require 'plugins.lsp',
+  -- require 'plugins.lsp',
   require 'plugins.autocompletion',
   require 'plugins.dropbar',
   require 'plugins.lualine',
@@ -13,7 +13,7 @@ require('lazy').setup({
   require 'plugins.treesitter',
 
   require 'plugins.debug',
-  require 'plugins.indent_line',
+  -- require 'plugins.indent_line',
  -- require 'plugins.lint',
   require 'plugins.autopairs',
   require 'plugins.comment',
@@ -23,6 +23,7 @@ require('lazy').setup({
   require 'plugins.misc',
   require 'plugins.toggleterm',
   require 'plugins.render-markdown',
+  -- require 'plugins.avante',
 
 }, {
   ui = {
