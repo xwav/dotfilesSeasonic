@@ -38,6 +38,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
+vim.keymap.set('n', 'X', '"_x', opts)
 
 -- Vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
