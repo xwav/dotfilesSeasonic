@@ -1,7 +1,8 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 vim.cmd.colorscheme("retrobox")
-vim.o.background = "light"
+-- vim.o.background = "light"
+vim.o.background = "dark"
 
 vim.o.number = true
 vim.o.relativenumber = true
