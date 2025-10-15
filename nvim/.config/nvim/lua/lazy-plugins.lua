@@ -3,6 +3,7 @@ require('lazy').setup({
 
   require 'plugins.gitsigns',
   require 'plugins.telescope',
+  require 'plugins.neo-tree',
   -- require 'plugins.lsp',
   require 'plugins.autocompletion',
   require 'plugins.dropbar',
