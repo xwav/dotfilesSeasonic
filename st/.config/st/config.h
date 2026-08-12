@@ -113,65 +113,23 @@ typedef struct {
  */
 
 static const ColorScheme schemes[] = {
-	// st (dark)
-	{{"black", "red3", "green3", "yellow3",
-	  "blue2", "magenta3", "cyan3", "gray90",
-	  "gray50", "red", "green", "yellow",
-	  "#5c5cff", "magenta", "cyan", "white",
-	  [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
-
 	// Alacritty (dark)
-	{{"black", "#cc6666", "#b5bd68", "#f0c674",
-	  "#81a2be", "#b294bb", "#8abeb7", "#c5c8c6",
-	  "#666666", "#d54e53", "#b9ca4a", "#e7c547",
-	  "#7aa6da", "#c397d8", "#70c0b1", "#eaeaea",
+	{{"black", "#b166cc", "#689d6a", "#f0c674",
+	  "#ae81be", "#b294bb", "#8abeb7", "#c5c8c6",
+	  "#666666", "#a64ed5", "#eaeaea", "#e7c547",
+	  "#957ada", "#c397d8", "#70c0b1", "#eaeaea",
 	  [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
-
-	// One Half dark
-	{{"black", "#e06c75", "#98c379", "#e5c07b",
-	  "#61afef", "#c678dd", "#56b6c2", "#dcdfe4",
-	  "#282c34", "#e06c75", "#98c379", "#e5c07b",
-	  "#61afef", "#c678dd", "#56b6c2", "#dcdfe4",
-	  [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
-
-	// One Half light
-	{{"#fafafa", "#e45649", "#50a14f", "#c18401",
-      "#0184bc", "#a626a4", "#0997b3", "#383a42",
-	  "#fafafa", "#e45649", "#50a14f", "#c18401",
-	  "#0184bc", "#a626a4", "#0997b3", "#383a42",
-	  [256]="#cccccc", "#555555"}, 7, 0, 256, 257},
-
-	// Solarized dark
-	{{"#073642", "#dc322f", "#859900", "#b58900",
-	  "#268bd2", "#d33682", "#2aa198", "#eee8d5",
-	  "#002b36", "#cb4b16", "#586e75", "#657b83",
-	  "#839496", "#6c71c4", "#93a1a1", "#fdf6e3",
-	  [256]="#93a1a1", "#fdf6e3"}, 12, 8, 256, 257},
-
-	// Solarized light
-	{{"#eee8d5", "#dc322f", "#859900", "#b58900",
-	  "#268bd2", "#d33682", "#2aa198", "#073642",
-	  "#fdf6e3", "#cb4b16", "#93a1a1", "#839496",
-	  "#657b83", "#6c71c4", "#586e75", "#002b36",
-	  [256]="#586e75", "#002b36"}, 12, 8, 256, 257},
-
-	// Gruvbox dark
-	{{"black", "#cc241d", "#98971a", "#d79921",
-	  "#458588", "#b16286", "#689d6a", "#a89984",
-	  "#928374", "#fb4934", "#b8bb26", "#fabd2f",
-	  "#83a598", "#d3869b", "#8ec07c", "#ebdbb2",
-	  [256]="#ebdbb2", "#555555"}, 15, 0, 256, 257},
 
 	// Gruvbox light
-	{{"#fbf1c7", "#cc241d", "#98971a", "#d79921",
-	  "#458588", "#b16286", "#689d6a", "#7c6f64",
-	  "#928374", "#9d0006", "#79740e", "#b57614",
+	{{"#e8d7d3", "#cc241d", "#689d6a", "#d79921",
+	  "#e7c547", "#b16286", "#689d6a", "#7c6f64",
+	  "#928374", "#9d0006", "#d79921", "#b57614",
 	  "#076678", "#8f3f71", "#427b58", "#3c3836",
 	  [256]="#3c3836", "#555555"}, 15, 0, 256, 257},
 };
 
 static const char * const * colorname;
-int colorscheme = 7;
+int colorscheme = 0;
 
 /*
  * Default colors (colorname index)
@@ -259,7 +217,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_V,           clippaste,       {.i =  0} },
 	
   { ShiftMask,            XK_Page_Up,     kscrollup,       {.i = -1}, S_PRI },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,     {.i = -1}, S_PRI },
+  { ShiftMask,            XK_Page_Down,   kscrolldown,     {.i = -1}, S_PRI },
 
   { TERMMOD,              XK_Y,           selpaste,        {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,        {.i =  0} },

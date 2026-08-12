@@ -71,20 +71,42 @@ return {
 
       -- Setup other mini modules
 
-      -- Better Around/Inside textobjects
-      require('mini.ai').setup { n_lines = 500 }
+      -- Minimap
+      -- require('mini.map').setup()
+    end,
+  },
 
-      -- Add/delete/replace surroundings
-      require('mini.surround').setup()
+  { 'nvim-mini/mini.map', 
+    version = '*',
+    config = function()
+      require('mini.map').setup()
 
-      -- Simple and easy statusline
-      -- local statusline = require 'mini.statusline'
-      -- statusline.setup { use_icons = vim.g.have_nerd_font }
-      --
-      -- -- Customize location section
-      -- statusline.section_location = function()
-      --   return '%2l:%-2v'
-      -- end
+    vim.keymap.set('n', '<Leader>mc', MiniMap.close, { desc = 'Minimap close' })
+    vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = 'Minimap focus' })
+    vim.keymap.set('n', '<Leader>mo', MiniMap.open, { desc = 'Minimap open' })
+    vim.keymap.set('n', '<Leader>mr', MiniMap.refresh, { desc = 'Minimap refresh' })
+    vim.keymap.set('n', '<Leader>ms', MiniMap.toggle_side, { desc = 'Minimap toggle side' })
+    vim.keymap.set('n', '<Leader>mt', MiniMap.toggle, { desc = 'Minimap toggle' })
+    end,
+  },
+
+  {
+    -- Mini hipatterns highlights TODO, FIXME, NOTE, etc.
+    'echasnovski/mini.hipatterns',
+    version = '*',
+    config = function()
+      local hipatterns = require('mini.hipatterns')
+      hipatterns.setup({
+        highlighters = {
+          fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+          hack  = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  },
+          todo  = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  },
+          note  = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  },
+
+          -- Highlight hex color strings (#rrggbb)
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+      })
     end,
   },
 }

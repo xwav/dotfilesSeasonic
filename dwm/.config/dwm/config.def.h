@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#1376bd";
+static const char col_cyan[]        = "#bdac13";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -114,15 +114,15 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 
 /* keys for alsa-utils*/
-   { 0, XF86XK_AudioMute,                    spawn,           {.v = mutecmd } },
-   { 0, XF86XK_AudioLowerVolume,             spawn,           {.v = voldowncmd } },
-   { 0, XF86XK_AudioRaiseVolume,             spawn,           {.v = volupcmd } },
-   { 0, XF86XK_AudioMicMute,                 spawn,           {.v = miccmd } },
+    { 0, XF86XK_AudioMute,                    spawn,           {.v = mutecmd } },
+    { 0, XF86XK_AudioLowerVolume,             spawn,           {.v = voldowncmd } },
+    { 0, XF86XK_AudioRaiseVolume,             spawn,           {.v = volupcmd } },
+    { 0, XF86XK_AudioMicMute,                 spawn,           {.v = miccmd } },
 
-	{ MODKEY|ControlMask,           XK_Up,     pushdown,               {0} },
+    { MODKEY|ControlMask,           XK_Up,     pushdown,               {0} },
 	{ MODKEY|ControlMask,           XK_Down,   pushup,                 {0} },
 	// { MODKEY,                       XK_p,      spawn,          SHCMD("passmenu") },
-  { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenu } },
@@ -135,16 +135,13 @@ static const Key keys[] = {
 	// { MODKEY|ShiftMask,             XK_Down,    rotatestack,    {.i = +1 } },
 	// { MODKEY|ShiftMask,             XK_Up,      rotatestack,    {.i = -1 } },
 
-	{ MODKEY,                       XK_j,   focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,     focusstack,     {.i = -1 } },
-
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
-
 	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
-
-  { MODKEY|ShiftMask,             XK_Left,   shifttag,       {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_Left,   shifttag,       {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Right,  shifttag,       {.i = +1 } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },

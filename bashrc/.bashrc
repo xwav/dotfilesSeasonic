@@ -64,9 +64,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\[\033[01;38m\]\u\[\033[01;32m\]@\[\033[01;36m\]\h \[\033[34m\]\w \[\033[35m\]\$(parse_git_branch)\[\033[00m\]$ "
+    PS1="${debian_chroot:+($debian_chroot)}\[\033[01;38m\]\u\[\033[01;32m\]@\[\033[01;36m\]\h \[\033[34m\]\w \[\033[35m\]\$(parse_git_branch)\[\033[00m\]\n$ "
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\n\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -196,4 +196,19 @@ export GIT_TERMINAL_PROMPT=1
 # if ! ssh-add -l | grep -q "github_ed25519"; then
 #     ssh-add ~/.ssh/github_ed25519
 # fi
+
+
+
+# opencode
+export PATH=/home/xwav/.opencode/bin:$PATH
+source <(kubectl completion bash)
+export PATH="$PATH:/opt/microsoft/microsoft-azurevpnclient"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 

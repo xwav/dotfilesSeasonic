@@ -1,7 +1,8 @@
 #!/bin/bash
 
-SRC_DIR=/home/xwav/DiskD/Sync
-SRC_DIR2=/home/xwav/DiskD/src
+SRC_DIR="/home/xwav/Sync"
+SRC_DIR2="/home/xwav/src"
+SRC_DIR3="/home/xwav/.ssh"
 DEST_DIR=/home/xwav/DiskD/backups
 TODAY=$(date +"%Y-%m-%d")
 
@@ -18,11 +19,11 @@ else
   # rsync -avz --delete $SRC_DIR $DEST_DIR/
 
   # Archive and zip the copied files using tar
-  tar -czf $DEST_DIR/$OUTPUT_FILE $SRC_DIR $SRC_DIR2
+  tar -czf $DEST_DIR/$OUTPUT_FILE $SRC_DIR $SRC_DIR2 $SRC_DIR3
 
   # Rotate archives by deleting the oldest one (if there are more than 3)
   ARCHIVES=$(find $DEST_DIR -type f -name "backup_*" | sort -n)
-  if [ $(echo "$ARCHIVES" | wc -l) -ge $NUM_BACKUPS ]; then
+  if [ $(echo "$ARCHIVES" | wc -l) -gt $NUM_BACKUPS ]; then
     rm $(echo "$ARCHIVES" | head -1)
   fi
 fi

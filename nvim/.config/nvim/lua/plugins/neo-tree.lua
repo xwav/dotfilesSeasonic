@@ -13,6 +13,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
+    cmd = "Neotree",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
@@ -21,6 +22,14 @@ return {
     config = function()
       -- Set up Neo-tree
       require("neo-tree").setup({
+        filesystem = {
+            follow_current_file = {
+              enabled = true,       -- enable following the current file
+              leave_dirs_open = false,  -- optional: keeps parent directories open
+            },
+          -- follow_current_file = true,  -- this makes Neo-tree focus on current file
+          hijack_netrw_behavior = "disabled", -- disables auto-opening
+        },
         window = {
           mappings = {
             ["P"] = {
