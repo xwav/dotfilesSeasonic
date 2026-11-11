@@ -79,7 +79,16 @@ return {
   { 'nvim-mini/mini.map', 
     version = '*',
     config = function()
-      require('mini.map').setup()
+      local map = require('mini.map')
+      map.setup({
+        symbols = { encode = map.gen_encode_symbols.dot('4x2') },
+        integrations = {
+          map.gen_integration.builtin_search(),
+          map.gen_integration.diagnostic(),
+          map.gen_integration.gitsigns(),
+        },
+        window = { winblend = 50, width = 12 },
+      })
 
     vim.keymap.set('n', '<Leader>mc', MiniMap.close, { desc = 'Minimap close' })
     vim.keymap.set('n', '<Leader>mf', MiniMap.toggle_focus, { desc = 'Minimap focus' })

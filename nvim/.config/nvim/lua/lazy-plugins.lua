@@ -24,6 +24,7 @@ require('lazy').setup({
   require 'plugins.misc',
   require 'plugins.toggleterm',
   require 'plugins.render-markdown',
+  require 'plugins.which-key',
   -- require 'plugins.avante',
 
 }, {
