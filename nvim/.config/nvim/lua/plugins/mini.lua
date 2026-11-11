@@ -69,6 +69,47 @@ return {
         end,
       })
 
+      -- mini.files only loads the first screenful of lines into the preview,
+      -- so load the rest of the file (capped) before scrolling it.
+      local max_preview_lines = 5000
+      local load_full_preview = function(preview)
+        local buf = vim.api.nvim_win_get_buf(preview.win_id)
+        local path = preview.path
+        if not path or vim.fn.filereadable(path) ~= 1 then return end
+        local lines = vim.fn.readfile(path, '', max_preview_lines)
+        if #lines <= vim.api.nvim_buf_line_count(buf) then return end
+        -- Skip non-text placeholders (first line must match the file)
+        if vim.api.nvim_buf_get_lines(buf, 0, 1, false)[1] ~= lines[1] then return end
+        local was_modifiable = vim.bo[buf].modifiable
+        vim.bo[buf].modifiable = true
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+        vim.bo[buf].modifiable = was_modifiable
+      end
+
+      -- Scroll the preview window with <C-d>/<C-u> (falls back to normal scrolling)
+      local scroll_preview = function(buf_id, lhs, key)
+        vim.keymap.set('n', lhs, function()
+          local state = MiniFiles.get_explorer_state()
+          local preview = state and state.windows[state.depth_focus + 1]
+          if preview and vim.api.nvim_win_is_valid(preview.win_id) then
+            load_full_preview(preview)
+            vim.api.nvim_win_call(preview.win_id, function()
+              vim.cmd('normal! ' .. vim.keycode(key))
+            end)
+          else
+            vim.cmd('normal! ' .. vim.keycode(key))
+          end
+        end, { buffer = buf_id, desc = 'Scroll preview' })
+      end
+
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'MiniFilesBufferCreate',
+        callback = function(args)
+          scroll_preview(args.data.buf_id, '<C-d>', '<C-d>')
+          scroll_preview(args.data.buf_id, '<C-u>', '<C-u>')
+        end,
+      })
+
       -- Setup other mini modules
 
       -- Minimap

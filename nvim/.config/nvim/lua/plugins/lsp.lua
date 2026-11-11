@@ -76,6 +76,13 @@ return { -- LSP Configuration & Plugins
         --  For example, in C this would take you to the header
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+        -- Leader aliases so these show up in the which-key leader menu
+        map('<leader>gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        map('<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+        map('<leader>gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        map('<leader>gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        map('<leader>gk', vim.lsp.buf.hover, 'Hover Documentation')
+
         map('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
         map('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
         map('<leader>wl', function()
@@ -112,6 +119,14 @@ return { -- LSP Configuration & Plugins
       bashls = {},
       dockerls = {},
       docker_compose_language_service = {},
+      gopls = {},
+      html = {},
+      cssls = {},
+      clangd = {},
+      jdtls = {}, -- needs a JDK installed
+      taplo = {},
+      marksman = {},
+      graphql = {},
       -- tailwindcss = {},
       -- graphql = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs' } },
@@ -128,20 +143,23 @@ return { -- LSP Configuration & Plugins
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format lua code
+      'markdownlint', -- Used by nvim-lint for markdown
+      'ruff',
+      'golangci-lint',
+      'hadolint',
+      'tflint',
+      'shellcheck',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
+      -- v2 auto-enables installed servers via vim.lsp.enable
+      automatic_enable = true,
     }
+
+    vim.lsp.config('*', { capabilities = capabilities })
+    for name, cfg in pairs(servers) do
+      vim.lsp.config(name, cfg)
+    end
   end,
 }

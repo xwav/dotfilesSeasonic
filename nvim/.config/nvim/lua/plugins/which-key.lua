@@ -19,6 +19,11 @@ return {
     end,
     spec = {
       { '<leader>m', group = 'Minimap' },
+      { '<leader>g', group = 'LSP goto' },
+      { '<leader>c', group = 'Code' },
+      { '<leader>d', group = 'Document' },
+      { '<leader>r', group = 'Rename' },
+      { '<leader>w', group = 'Workspace' },
     },
   },
   keys = {

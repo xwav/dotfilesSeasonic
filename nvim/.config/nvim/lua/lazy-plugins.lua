@@ -4,7 +4,7 @@ require('lazy').setup({
   require 'plugins.gitsigns',
   require 'plugins.telescope',
   require 'plugins.neo-tree',
-  -- require 'plugins.lsp',
+  require 'plugins.lsp',
   require 'plugins.autocompletion',
   require 'plugins.dropbar',
   require 'plugins.lualine',
@@ -15,7 +15,7 @@ require('lazy').setup({
 
   require 'plugins.debug',
   -- require 'plugins.indent_line',
- -- require 'plugins.lint',
+  require 'plugins.lint',
   require 'plugins.autopairs',
   require 'plugins.comment',
   require 'plugins.alpha',

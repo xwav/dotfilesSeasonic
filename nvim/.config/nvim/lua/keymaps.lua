@@ -55,8 +55,8 @@ vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decreas
 vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
 
 -- Window management
-vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
-vim.keymap.set('n', '<leader>h', '<C-w>s', opts) -- split window horizontally
+vim.keymap.set('n', '<leader>v', '<C-w>v', vim.tbl_extend('force', opts, { desc = 'Split window vertically' }))
+vim.keymap.set('n', '<leader>h', '<C-w>s', vim.tbl_extend('force', opts, { desc = 'Split window horizontally' }))
 
 -- Buffers
 vim.keymap.set('n', '<S-l>', ':bnext<CR>', opts)
@@ -71,7 +71,7 @@ vim.keymap.set('n', '<Tab>', ':tabn<CR>', opts) --  go to next tab
 vim.keymap.set('n', '<S-Tab>', ':tabp<CR>', opts) --  go to previous tab
 
 -- Toggle line wrapping
-vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
+vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', vim.tbl_extend('force', opts, { desc = 'Toggle line wrap' }))
 
 -- Press jk fast to exit insert mode
 vim.keymap.set('i', 'jk', '<ESC>', opts)
