@@ -37,6 +37,7 @@ vim.o.linebreak = true -- companion to wrap don't split words
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+-- Insert dots and arrows for spaces and tabs at the end of line
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!

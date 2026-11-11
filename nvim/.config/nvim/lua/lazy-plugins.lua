@@ -8,13 +8,11 @@ require('lazy').setup({
   require 'plugins.autocompletion',
   require 'plugins.dropbar',
   require 'plugins.lualine',
-  -- require 'plugins.conform',
-  -- require 'plugins.blink-cmp',
+  require 'plugins.conform',
   require 'plugins.mini',
   require 'plugins.treesitter',
 
   require 'plugins.debug',
-  -- require 'plugins.indent_line',
   require 'plugins.lint',
   require 'plugins.autopairs',
   require 'plugins.comment',
@@ -26,7 +24,6 @@ require('lazy').setup({
   require 'plugins.render-markdown',
   require 'plugins.which-key',
   -- require 'plugins.avante',
-
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
