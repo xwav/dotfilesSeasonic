@@ -90,7 +90,15 @@ return {
       local scroll_preview = function(buf_id, lhs, key)
         vim.keymap.set('n', lhs, function()
           local state = MiniFiles.get_explorer_state()
-          local preview = state and state.windows[state.depth_focus + 1]
+          local preview
+          if state then
+            for i, window in ipairs(state.windows) do
+              if window.win_id == vim.api.nvim_get_current_win() then
+                preview = state.windows[i + 1]
+                break
+              end
+            end
+          end
           if preview and vim.api.nvim_win_is_valid(preview.win_id) then
             load_full_preview(preview)
             vim.api.nvim_win_call(preview.win_id, function()
