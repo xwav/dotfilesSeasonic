@@ -114,7 +114,25 @@ return { -- LSP Configuration & Plugins
       },
       jsonls = {},
       sqlls = {},
-      terraformls = {},
+      terraformls = {
+        on_attach = function(_, bufnr)
+          if vim.lsp.codelens.enable then
+            vim.lsp.codelens.enable(true, { bufnr = bufnr })
+            return
+          end
+
+          -- Neovim 0.11.0 requires explicit CodeLens refreshes.
+          local group = vim.api.nvim_create_augroup('terraform-codelens-' .. bufnr, { clear = true })
+          vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+            group = group,
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.codelens.refresh { bufnr = bufnr }
+            end,
+          })
+          vim.lsp.codelens.refresh { bufnr = bufnr }
+        end,
+      },
       yamlls = {},
       bashls = {},
       dockerls = {},

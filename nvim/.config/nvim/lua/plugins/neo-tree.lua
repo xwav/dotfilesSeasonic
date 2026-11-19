@@ -7,6 +7,10 @@ return {
       require("nvim-web-devicons").setup({
         color_icons = true,
         default = true,
+        override_by_extension = {
+          yaml = { icon = "", color = "#6d8086", name = "Yaml" },
+          yml = { icon = "", color = "#6d8086", name = "Yml" },
+        },
       })
     end,
   },
